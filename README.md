@@ -1,5 +1,8 @@
 # ChessViewer
 
+## Copyright
+This program is made as an answer to an assignment. Some parts of this program are subject to Copyright by Victoria University of Wellington. 
+
 ## Compiling Java files using Eclipse IDE
 
 1. Download this repository as ZIP
@@ -21,4 +24,4 @@
 ## Notes
 <strong>This is a viewer only</strong>
 <p>
-  Click <a href=''>here</a> for more
+  Click <a href='https://github.com/rjperez94/ChessViewer/blob/master/brief.pdf'>here</a> for more information about this project
