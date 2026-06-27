@@ -2,19 +2,36 @@ package assignment3.chessview;
 
 import java.util.*;
 import java.io.*;
-
 import assignment3.chessview.viewer.*;
+import javax.swing.*;
 
 public class Main {
+	// Load required game using a JFileChooser
+	private static JFileChooser fileChooser = new JFileChooser();
+	private static File GAME;
+
 	public static void main(String[] args) {
-		
+		chooseDir();
+
 		try {
-			ChessGame game = new ChessGame(new FileReader(args[0]));			
+			ChessGame game = new ChessGame(new FileReader(GAME.getAbsolutePath()));
 			new BoardFrame(game);
 			//textView(game);
 		} catch(IOException e) {			
-			System.err.println("Error loading file: " + args[0]);
+			System.err.println("Error loading file: " + GAME.getAbsolutePath());
 			System.err.println(e.getMessage());			
+		}
+	}
+
+	private static void chooseDir() {
+        // set up the file chooser
+		fileChooser.setCurrentDirectory(new File("."));
+		fileChooser.setDialogTitle("Select input directory");
+		fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+		// run the file chooser and check the user didn't hit cancel
+		if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+			GAME = fileChooser.getSelectedFile();    //  Set game
 		}
 	}
 	
